@@ -9,8 +9,9 @@
 | 技能 | 触发场景 | 简介 |
 |------|----------|------|
 | **[harmonyos-arkts](./skills/harmonyos-arkts/)** | 编写 / 修改 / 重构 / 审查 `.ets`，TS→ArkTS 迁移，ArkTS 编译报错 | ArkTS 语言层开发规范、合规审查与编译排错。自带机械审查脚本。 |
+| **[arkui-design](./skills/arkui-design/)** | 编写 / 修改 ArkUI 界面（`@Component` / build / 状态管理 / 布局 / 动画 / 导航） | ArkUI 声明式 UI 规范：状态装饰器决策、数据流、列表性能、布局、动画、导航。 |
 
-> 规划中：ArkUI 状态管理技能（`@State` / `@Prop` / `@Builder` 等），与 `harmonyos-arkts` 的语言层规则互补。
+> 两个技能互补：`harmonyos-arkts` 管语言层，`arkui-design` 管 UI 层，写 `.ets` 时都适用。
 
 ## 目录结构
 
@@ -19,12 +20,18 @@ harmonyos-development-skills/
 ├── README.md
 ├── LICENSE                               # MIT
 └── skills/
-    └── harmonyos-arkts/
-        ├── SKILL.md                      # 主技能文件（触发即加载）
-        ├── scripts/
-        │   └── arkts_lint.py             # 机械审查脚本
+    ├── harmonyos-arkts/
+    │   ├── SKILL.md                      # 主技能文件（触发即加载）
+    │   ├── scripts/
+    │   │   └── arkts_lint.py             # 机械审查脚本
+    │   └── references/
+    │       └── migration-and-review.md   # 迁移/审查详细参考
+    └── arkui-design/
+        ├── SKILL.md
         └── references/
-            └── migration-and-review.md   # 迁移/审查详细参考
+            ├── state-management.md       # 状态装饰器详解
+            ├── components-and-layout.md  # 组件与布局、Navigation
+            └── performance.md            # 渲染性能清单
 ```
 
 技能放在 `skills/` 目录下，每个技能一个子目录，符合 [`skills`](https://github.com/vercel-labs/skills) 工具的发现规范。每个技能目录的约定：

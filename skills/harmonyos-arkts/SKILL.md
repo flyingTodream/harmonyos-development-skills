@@ -1,6 +1,6 @@
 ---
 name: harmonyos-arkts
-description: HarmonyOS ArkTS 代码开发规范、合规审查与编译排错。只要任务涉及编写、修改、重构 ArkTS / .ets 文件，审核/检查现有 ArkTS 代码是否符合规范，把 TypeScript 迁移到 ArkTS，或处理 ArkTS 编译报错，就必须使用本技能——即使用户没有明确要求。提供硬性规则、TypeScript→ArkTS 决策表、修改已有代码守则、编译错误处理流程、机械审查脚本与分级 Code Review 报告。HarmonyOS / 鸿蒙开发、ArkTS 代码审查、TS→ArkTS 迁移、.ets 编译错误均应触发。边界：本技能只管 ArkTS「语言层」规则；ArkUI 状态管理（@State / @Prop / @Builder 等）属于独立技能，不要混淆。
+description: HarmonyOS ArkTS 代码开发规范、合规审查与编译排错。只要任务涉及编写、修改、重构 ArkTS / .ets 文件，审核/检查现有 ArkTS 代码是否符合规范，把 TypeScript 迁移到 ArkTS，或处理 ArkTS 编译报错，就必须使用本技能——即使用户没有明确要求。提供硬性规则、TypeScript→ArkTS 决策表、修改已有代码守则、编译错误处理流程、机械审查脚本与分级 Code Review 报告。HarmonyOS / 鸿蒙开发、ArkTS 代码审查、TS→ArkTS 迁移、.ets 编译错误均应触发。边界：本技能只管 ArkTS「语言层」规则；ArkUI 状态管理（@State / @Prop / @Builder 等）属于arkui-design 技能，不要混淆。
 ---
 
 # ArkTS 开发规范
@@ -15,14 +15,14 @@ description: HarmonyOS ArkTS 代码开发规范、合规审查与编译排错。
 - 处理 ArkTS 编译报错
 - HarmonyOS / 鸿蒙应用开发中涉及 `.ets` 的任务
 
-> 边界：ArkUI 声明式 UI 与状态管理（`@State` / `@Prop` / `@Link` / `@Builder` / `@Provide` / `@Consume` 等）属于独立技能，本技能**不覆盖**。不要把 ArkUI 状态管理规则和这里的语言层规则混在一起。
+> 边界：ArkUI 声明式 UI 与状态管理（`@State` / `@Prop` / `@Link` / `@Builder` / `@Provide` / `@Consume` 等）属于arkui-design 技能，本技能**不覆盖**。不要把 ArkUI 状态管理规则和这里的语言层规则混在一起。
 
 ## 2. 适用范围
 
 - 所有 `.ets` 文件里的 ArkTS 代码。
 - 普通业务逻辑、数据模型、工具类、网络层等**语言层**代码。
 - `.ts` / `.js` 与 ArkTS 的交互边界。
-- 不适用：ArkUI 组件声明与状态管理（见独立技能）、原生 TS/JS 工程代码。
+- 不适用：ArkUI 组件声明与状态管理（见arkui-design 技能）、原生 TS/JS 工程代码。
 
 默认目标语言是 **ArkTS，不是普通 TypeScript**。不要把 TS 代码改个后缀就当作迁移完成。
 
@@ -363,7 +363,7 @@ import { HomePage } from './HomePage.ets'
 6. **新增对象属性前，先确认数据模型是否需要扩展**——不要事后 `obj.newProp = ...`。
 7. **不确定某个 TS 语法是否被当前 ArkTS 版本支持时，不假设支持**，采用更保守的写法。
 8. **代码完成后主动自检**类型安全与语言兼容性（见第 8 节）。
-9. **ArkUI 状态管理走独立的 ArkUI 技能**，不与本语言规则混淆。
+9. **ArkUI 状态管理走 arkui-design 技能**，不与本语言规则混淆。
 
 ### 6.2 修改已有代码：保守优先
 
