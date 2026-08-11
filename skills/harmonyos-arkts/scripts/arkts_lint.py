@@ -147,8 +147,8 @@ RULES = [
         "advice": "用具体 interface，或动态键值用 Record<string, T>。",
     },
     {
-        "id": "ARK107", "sev": WARN,
-        "title": "禁止宽泛 Function 类型",
+        "id": "ARK107", "sev": ERROR,
+        "title": "禁止宽泛 Function 类型（ArkTS 编译报错）",
         "patterns": [r":\s*Function\b"],
         "advice": "写明确签名：let cb: (value: string) => void。",
     },

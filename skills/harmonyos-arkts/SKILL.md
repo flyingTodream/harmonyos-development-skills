@@ -175,12 +175,12 @@ const data: UserInfo = await request()
 function parseUser(json: string): UserInfo { return JSON.parse(json) as UserInfo }
 ```
 
-**禁止宽泛 `Object` / `Function`（`Object` 是编译错误，直接报错）：**
+**禁止宽泛 `Object` / `Function`（两者都是编译错误，直接报错）：**
 
-ArkTS 不允许把变量、参数、返回值声明为宽泛的 `Object`——这会**直接触发编译错误**，不是风格偏好。`Function` 同样应避免，写明确签名。
+ArkTS 不允许把变量、参数、返回值声明为宽泛的 `Object` 或 `Function`——这会**直接触发编译错误**，不是风格偏好。函数类型写明确签名。
 
 ```ts
-// ✕ 宽泛 Object → ArkTS 编译报错；Function 也应避免
+// ✕ 宽泛 Object / Function → ArkTS 编译报错
 const obj: Object = {}
 let cb: Function
 
