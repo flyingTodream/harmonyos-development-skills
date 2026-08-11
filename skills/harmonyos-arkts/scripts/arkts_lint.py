@@ -141,8 +141,8 @@ RULES = [
         "advice": "用严格比较 === / !==，或先把数据显式转换成同类型。",
     },
     {
-        "id": "ARK106", "sev": WARN,
-        "title": "禁止宽泛 Object 类型",
+        "id": "ARK106", "sev": ERROR,
+        "title": "禁止宽泛 Object 类型（ArkTS 编译报错）",
         "patterns": [r":\s*Object\b", r"<\s*Object\b"],
         "advice": "用具体 interface，或动态键值用 Record<string, T>。",
     },
