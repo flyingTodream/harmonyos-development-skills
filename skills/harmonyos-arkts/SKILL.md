@@ -191,6 +191,23 @@ let cb: (value: string) => void
 
 ### 4.2 对象
 
+**对象字面量必须有明确的 class / interface 类型**（编译器规则 `arkts-no-untyped-obj-literals`）。ArkTS 禁止「裸」对象字面量——每个对象字面量都要能对应到一个已声明的 `interface` 或 `class`：
+
+```ts
+// ✕ 裸对象字面量 → 报 arkts-no-untyped-obj-literals
+const user = { name: 'Tom', age: 18 }
+function getSize() { return { width: 100 } }   // 返回值也是裸字面量
+
+// ✓ 先声明类型，字面量带类型标注
+interface UserInfo { name: string; age: number }
+const user: UserInfo = { name: 'Tom', age: 18 }
+
+interface Size { width: number }
+function getSize(): Size { return { width: 100 } }
+```
+
+函数参数传对象、数组元素、对象嵌套——只要是对象字面量，都要有对应类型。动态键值结构用 `Record<string, T>`。
+
 **对象结构固定，禁止动态变形。** 对象一旦创建，结构就固定：
 
 ```ts
