@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# IDE / 编辑器
+.idea/
+.vscode/
+*.iml
+*.swp
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# 日志 / 临时
+*.log
+*.tmp
